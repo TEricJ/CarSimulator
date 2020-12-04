@@ -87,8 +87,23 @@ public void setLeftTurn(int l){
     whenLeftTurn = l;
 }
 
-public void findTurns(){
-    ;
+public void findTurns(RoadMap road){
+	boolean[][] temp = censor.findRoad(x, y);
+    if(direction == 'e') {
+        for(int i = 3; i >= 0; i--){
+            if(temp[0][i] && temp[1][i]){
+                setLeftTurn(i + 1);
+            } else if(temp[3][i] && temp[4][i]){
+                setRightTurn(i + 1);
+            }
+        }
+    } else if(direction == 'w') {
+        ;
+    } else if(direction == 'n') {
+        ;
+    } else {
+        ;
+    }
 }
 
 
