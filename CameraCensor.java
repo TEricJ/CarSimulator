@@ -130,6 +130,53 @@ public HashMap<Coords, Character> findObstacles(int x, int y){
 	}
 	return obstacles;
 }
+	
+public boolean[][] findRoad(int x, int y){
+        char[][] road = map.getRoad();
+        boolean[][] temp = new boolean[5][];
+        if(direction == 'e') {
+            for(int i = y - 2; i <= y + 2; i++){
+                for(int j = x + 1; i <= x + 4; j++){
+                    if(road[i][j] == ' '){
+                        temp[i][j] = true;
+                    } else {
+                        temp[i][j] = false;
+                    }
+                }
+            }
+        } else if( direction == 'w') {
+            for(int i = y - 2; i <= y + 2; i++){
+                for(int j = x - 1; i <= x - 4; j++){
+                    if(road[i][j] == ' '){
+                        temp[i][j] = true;
+                    } else {
+                        temp[i][j] = false;
+                    }
+                }
+            }
+        } else if(direction == 'n') {
+            for(int i = x - 2; i <= x + 2; i++){
+                for(int j = y + 1; i <= y + 4; j++){
+                    if(road[i][j] == ' '){
+                        temp[i][j] = true;
+                    } else {
+                        temp[i][j] = false;
+                    }
+                }
+            }
+        } else {
+            for(int i = x - 2; i <= x + 2; i++){
+                for(int j = y - 1; i <= y - 4; j++){
+                    if(road[i][j] == ' '){
+                        temp[i][j] = true;
+                    } else {
+                        temp[i][j] = false;
+                    }
+                }
+            }
+        }
+        return temp;
+    }
 
 /*public HashMap<Coords, Character> findObstacles(int x, int y){
 char[][] road = map.getRoad();
